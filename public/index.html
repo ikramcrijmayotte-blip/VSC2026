@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CRIJ Mayotte — Suivi Service Civique</title>
+<style>
+:root{--green:#0f766e;--light:#eaf6f4;--bg:#f5f7f8;--text:#17212b;--muted:#78858c;--border:#e6edef}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}button,input,select{font:inherit}.hidden{display:none!important}
+.login{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#eaf6f4,#f5f7f8)}.login-card{width:min(420px,calc(100% - 30px));background:white;border-radius:18px;padding:32px;box-shadow:0 20px 60px #00000012}.login-logo{width:55px;height:55px;border-radius:15px;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:bold;margin-bottom:18px}.login h1{margin:0;font-size:24px}.login p{color:var(--muted);font-size:13px}.field{display:block;font-size:12px;color:var(--muted);margin:15px 0}.field input,.field select{display:block;width:100%;margin-top:7px;padding:12px;border:1px solid var(--border);border-radius:9px}.btn{border:0;border-radius:9px;padding:11px 15px;cursor:pointer;font-size:12px;font-weight:bold}.primary{background:var(--green);color:#fff}.secondary{background:#fff;border:1px solid var(--border)}.full{width:100%}.error{color:#b42318;font-size:12px;margin:10px 0}
+.app{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:260px;background:#fff;border-right:1px solid var(--border);padding:22px 16px;display:flex;flex-direction:column;z-index:10}.brand{display:flex;gap:10px;align-items:center;padding:0 8px 25px}.logo{width:42px;height:42px;border-radius:12px;background:var(--green);color:white;display:grid;place-items:center;font-size:11px;font-weight:bold}.brand b,.brand span{display:block}.brand b{font-size:15px}.brand span{font-size:11px;color:var(--muted);margin-top:3px}.user-box{background:var(--light);border:1px solid #d9eeeb;padding:12px;border-radius:12px;margin:0 4px 18px}.user-box b,.user-box span{display:block}.user-box b{font-size:13px}.user-box span{font-size:10px;color:var(--muted);margin-top:3px}.nav{display:flex;flex-direction:column;gap:4px}.nav button{border:0;background:none;text-align:left;padding:12px;border-radius:9px;color:#71808a;cursor:pointer;font-size:13px}.nav button.active,.nav button:hover{background:var(--light);color:var(--green);font-weight:bold}.logout{margin-top:auto;border:0;background:none;text-align:left;color:var(--muted);padding:12px;cursor:pointer}.main{margin-left:260px}.topbar{height:88px;background:#fff;border-bottom:1px solid var(--border);padding:0 32px;display:flex;justify-content:space-between;align-items:center}.eyebrow{font-size:10px;color:var(--green);letter-spacing:1px;font-weight:bold}.topbar h1{font-size:22px;margin:4px 0}.top-user{font-size:12px;color:var(--muted)}.content{padding:28px}.page{max-width:1400px;margin:auto}.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.head h2{margin:0;font-size:24px}.head p{margin:6px 0 0;color:var(--muted);font-size:13px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:20px}.card,.panel{background:#fff;border:1px solid var(--border);border-radius:14px;padding:19px}.card span,.card small{display:block;color:var(--muted);font-size:11px}.card b{font-size:26px;display:block;margin:5px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}.panel h3{margin:0 0 15px;font-size:15px}.panel p{color:var(--muted);font-size:12px}.bar{height:8px;background:#edf1f2;border-radius:9px;overflow:hidden;margin:8px 0 16px}.bar i{display:block;height:100%;background:#46a99d}.row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eef1f2;font-size:12px}.row:last-child{border-bottom:0}.tag{background:#f0f4f5;padding:5px 8px;border-radius:6px;font-size:10px;color:#68767d}.ok{color:var(--green);background:var(--light);padding:5px 8px;border-radius:6px;font-size:10px}.warning{color:#b56d1f;background:#fff3e7;padding:5px 8px;border-radius:6px;font-size:10px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;font-size:11px}.table th{color:#87939a;text-align:left;font-size:10px;padding:12px 9px;border-bottom:1px solid var(--border)}.table td{padding:13px 9px;border-bottom:1px solid #eef1f2;white-space:nowrap}.actions{display:flex;gap:6px}.small{padding:7px 9px;font-size:10px}.danger{color:#b42318;background:#fff0f0;border:1px solid #ffd4d4}.admin-tabs{display:flex;gap:8px;margin-bottom:16px}.admin-tabs button{border:1px solid var(--border);background:#fff;padding:10px 13px;border-radius:8px;cursor:pointer;font-size:12px}.admin-tabs button.active{background:var(--green);color:white}.modal-bg{position:fixed;inset:0;background:#17212b55;display:grid;place-items:center;z-index:30}.modal{background:#fff;border-radius:15px;padding:24px;width:min(470px,calc(100% - 30px))}.modal-head{display:flex;justify-content:space-between;align-items:center}.modal-head h2{font-size:18px}.close{border:0;background:none;cursor:pointer;font-size:20px}.notice{background:#fff8e8;border:1px solid #f1ddb0;padding:12px;border-radius:9px;color:#7b5a19;font-size:11px;margin-bottom:16px}
+@media(max-width:900px){.sidebar{transform:translateX(-100%);transition:.2s}.sidebar.open{transform:translateX(0)}.main{margin-left:0}.cards{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.topbar{padding:0 18px}.content{padding:18px}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}.head{align-items:flex-start;gap:15px;flex-direction:column}.top-user{display:none}}
+</style>
+</head>
+<body>
+<div id="loginView" class="login">
+  <form id="loginForm" class="login-card">
+    <div class="login-logo">CRIJ</div>
+    <h1>Suivi Service Civique</h1>
+    <p>CRIJ Mayotte · Espace sécurisé de suivi</p>
+    <div id="loginError" class="error"></div>
+    <label class="field">Adresse e-mail<input id="email" type="email" required placeholder="direction@crij-mayotte.fr"></label>
+    <label class="field">Mot de passe<input id="password" type="password" required></label>
+    <button class="btn primary full">Se connecter</button>
+  </form>
+</div>
 
+<div id="appView" class="app hidden">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">CRIJ</div><div><b>CRIJ Mayotte</b><span>Suivi Service Civique</span></div></div>
+  <div class="user-box"><b id="userName">Direction</b><span id="userRole">Administrateur</span></div>
+  <nav class="nav">
+    <button data-page="dashboard" class="active">📊 Tableau de bord</button>
+    <button data-page="volunteers">👥 Service civique</button>
+    <button data-page="actions">📋 Actions</button>
+    <button data-page="admin">⚙️ Administration</button>
+  </nav>
+  <button id="logout" class="logout">↪ Se déconnecter</button>
+</aside>
+<main class="main">
+<header class="topbar"><div><div class="eyebrow">ESPACE CRIJ MAYOTTE</div><h1 id="pageTitle">Tableau de bord</h1></div><div class="top-user" id="topUser"></div></header>
+<section id="content" class="content"></section>
+</main>
+</div>
+
+<div id="modalBg" class="modal-bg hidden"><div class="modal">
+<div class="modal-head"><h2 id="modalTitle">Nouveau compte</h2><button class="close" onclick="closeModal()">×</button></div>
+<form id="userForm">
+<input type="hidden" id="editId">
+<label class="field">Nom complet<input id="userNameInput" required></label>
+<label class="field">Adresse e-mail<input id="userEmailInput" type="email" required></label>
+<label class="field">Rôle<select id="userRoleInput"><option value="direction">Direction / Admin</option><option value="cip">CIP</option><option value="lecture">Lecture seule</option></select></label>
+<label class="field">Mot de passe<input id="userPasswordInput" type="password" minlength="8" required></label>
+<button class="btn primary full">Enregistrer le compte</button>
+</form></div></div>
+
+<script>
+let currentUser=null, db={users:[],volunteers:[],actions:[]}, page='dashboard';
+const $=id=>document.getElementById(id);
+async function api(url,opts={}){const r=await fetch(url,{headers:{'Content-Type':'application/json',...(opts.headers||{})},...opts});const data=await r.json();if(!r.ok)throw new Error(data.error||'Erreur');return data}
+function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+$('loginForm').onsubmit=async e=>{e.preventDefault();$('loginError').textContent='';try{const r=await api('/api/login',{method:'POST',body:JSON.stringify({email:$('email').value,password:$('password').value})});currentUser=r.user;localStorage.setItem('crijUser',JSON.stringify(currentUser));await startApp()}catch(err){$('loginError').textContent=err.message}}
+async function startApp(){db=await api('/api/bootstrap');$('loginView').classList.add('hidden');$('appView').classList.remove('hidden');$('userName').textContent=currentUser.name;$('userRole').textContent=currentUser.role==='direction'?'Administrateur':currentUser.role.toUpperCase();$('topUser').textContent=currentUser.email;render()}
+$('logout').onclick=()=>{localStorage.removeItem('crijUser');location.reload()}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>{page=b.dataset.page;document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');render()});
+function render(){const titles={dashboard:'Tableau de bord',volunteers:'Service civique',actions:'Suivi des actions',admin:'Administration'};$('pageTitle').textContent=titles[page];if(page==='dashboard')dashboard();if(page==='volunteers')volunteers();if(page==='actions')actions();if(page==='admin')admin()}
+function dashboard(){const avg=db.volunteers.length?Math.round(db.volunteers.reduce((a,v)=>a+(+v.progress||0),0)/db.volunteers.length):0;$('content').innerHTML=`<div class="page"><div class="head"><div><h2>Bonjour, ${escapeHtml(currentUser.name)} 👋</h2><p>Vue globale du suivi des 30 volontaires accompagnés par les 3 CIP.</p></div></div><div class="cards"><div class="card"><span>Volontaires suivis</span><b>${db.volunteers.length||30}</b><small>Objectif : 30 volontaires</small></div><div class="card"><span>Comptes actifs</span><b>${db.users.length}</b><small>Direction et CIP</small></div><div class="card"><span>Actions enregistrées</span><b>${db.actions.length}</b><small>Entretiens, bilans, formations</small></div><div class="card"><span>Progression moyenne</span><b>${avg}%</b><small>Sur les volontaires renseignés</small></div></div><div class="grid"><div class="panel"><h3>Répartition par CIP</h3>${['CIP 1','CIP 2','CIP 3'].map(c=>{let n=db.volunteers.filter(v=>v.cip===c).length;return `<div class="row"><span>${c}</span><b>${n} volontaire(s)</b></div><div class="bar"><i style="width:${Math.min(n*10,100)}%"></i></div>`}).join('')}</div><div class="panel"><h3>Prochaines actions</h3>${db.actions.slice(-5).reverse().map(a=>`<div class="row"><span><b>${escapeHtml(a.title)}</b><br><small>${escapeHtml(a.volunteer||'Groupe')}</small></span><span class="tag">${escapeHtml(a.date||'À planifier')}</span></div>`).join('')||'<p>Aucune action enregistrée.</p>'}</div></div></div>`}
+function volunteers(){$('content').innerHTML=`<div class="page"><div class="head"><div><h2>Service civique</h2><p>Gestion des volontaires et de leur accompagnement.</p></div><button class="btn primary" onclick="addVolunteer()">+ Ajouter un volontaire</button></div><div class="panel"><div class="notice">La Direction peut gérer l'ensemble des volontaires. Les CIP peuvent être associés à leurs suivis.</div><div class="table-wrap"><table class="table"><thead><tr><th>Nom</th><th>CIP</th><th>Mission</th><th>Progression</th><th>Statut</th><th>Actions</th></tr></thead><tbody>${db.volunteers.map(v=>`<tr><td>${escapeHtml(v.name)}</td><td><span class="tag">${escapeHtml(v.cip||'À définir')}</span></td><td>${escapeHtml(v.mission||'À définir')}</td><td>${v.progress||0}%</td><td><span class="ok">Actif</span></td><td><button class="btn small danger" onclick="deleteVolunteer('${v.id}')">Supprimer</button></td></tr>`).join('')||'<tr><td colspan="6">Aucun volontaire. Ajoute les 30 volontaires depuis cette page.</td></tr>'}</tbody></table></div></div></div>`}
+function actions(){$('content').innerHTML=`<div class="page"><div class="head"><div><h2>Suivi des actions</h2><p>Entretiens, bilans, formations et ateliers.</p></div><button class="btn primary" onclick="addAction()">+ Nouvelle action</button></div><div class="panel">${db.actions.map(a=>`<div class="row"><span><b>${escapeHtml(a.title)}</b><br><small>${escapeHtml(a.volunteer||'Groupe')} · ${escapeHtml(a.cip||'')}</small></span><span>${escapeHtml(a.date||'À planifier')}</span><button class="btn small danger" onclick="deleteAction('${a.id}')">Supprimer</button></div>`).join('')||'<p>Aucune action enregistrée.</p>'}</div></div>`}
+function admin(){$('content').innerHTML=`<div class="page"><div class="head"><div><h2>Administration</h2><p>Créer, modifier et supprimer les comptes de l'équipe.</p></div><button class="btn primary" onclick="openUserModal()">+ Créer un compte</button></div><div class="panel"><div class="notice">⚠️ Espace réservé à la Direction / aux administrateurs. Les comptes CIP peuvent accéder au suivi selon les droits qui leur sont attribués.</div><div class="table-wrap"><table class="table"><thead><tr><th>Nom</th><th>E-mail</th><th>Rôle</th><th>Actions</th></tr></thead><tbody>${db.users.map(u=>`<tr><td>${escapeHtml(u.name)}</td><td>${escapeHtml(u.email)}</td><td><span class="tag">${escapeHtml(u.role)}</span></td><td class="actions"><button class="btn small secondary" onclick='editUser(${JSON.stringify(u)})'>Modifier</button><button class="btn small danger" onclick="deleteUser('${u.id}')">Supprimer</button></td></tr>`).join('')}</tbody></table></div></div></div>`}
+function openUserModal(u=null){$('modalBg').classList.remove('hidden');$('modalTitle').textContent=u?'Modifier le compte':'Nouveau compte';$('editId').value=u?.id||'';$('userNameInput').value=u?.name||'';$('userEmailInput').value=u?.email||'';$('userRoleInput').value=u?.role||'cip';$('userPasswordInput').required=!u}
+function editUser(u){openUserModal(u)}function closeModal(){$('modalBg').classList.add('hidden')}
+$('userForm').onsubmit=async e=>{e.preventDefault();const id=$('editId').value;const body={name:$('userNameInput').value,email:$('userEmailInput').value,role:$('userRoleInput').value,password:$('userPasswordInput').value};try{if(id)await api('/api/admin/users/'+id,{method:'PUT',body:JSON.stringify(body)});else await api('/api/admin/users',{method:'POST',body:JSON.stringify(body)});closeModal();db=await api('/api/bootstrap');render()}catch(err){alert(err.message)}}
+async function deleteUser(id){if(!confirm('Supprimer ce compte ?'))return;try{await api('/api/admin/users/'+id,{method:'DELETE'});db=await api('/api/bootstrap');render()}catch(e){alert(e.message)}}
+async function addVolunteer(){const name=prompt('Nom complet du volontaire');if(!name)return;const cip=prompt('CIP référent (CIP 1, CIP 2 ou CIP 3)','CIP 1');const mission=prompt('Mission','À définir');await api('/api/volunteers',{method:'POST',body:JSON.stringify({name,cip,mission,progress:0})});db=await api('/api/bootstrap');render()}
+async function deleteVolunteer(id){if(confirm('Supprimer ce volontaire ?')){await api('/api/volunteers/'+id,{method:'DELETE'});db=await api('/api/bootstrap');render()}}
+async function addAction(){const title=prompt('Nom de l’action');if(!title)return;const volunteer=prompt('Volontaire ou groupe');const date=prompt('Date');await api('/api/actions',{method:'POST',body:JSON.stringify({title,volunteer,date})});db=await api('/api/bootstrap');render()}
+async function deleteAction(id){if(confirm('Supprimer cette action ?')){await api('/api/actions/'+id,{method:'DELETE'});db=await api('/api/bootstrap');render()}}
+const saved=localStorage.getItem('crijUser');if(saved){currentUser=JSON.parse(saved);startApp().catch(()=>localStorage.removeItem('crijUser'))}
+</script>
+</body></html>
